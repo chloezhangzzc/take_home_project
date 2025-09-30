@@ -5,7 +5,7 @@ This repository contains two deliverables built on the same tabular dataset (~40
 - **Objective 1 — Income Classification**: predict whether annual income is `≤ $50K` vs. `> $50K`.
 - **Objective 2 — Market Segmentation**: create customer segments suitable for targeting and messaging (K-Means recommended; GMM/HDBSCAN for comparison).
 
-The code supports **fully reproducible** runs (fixed seeds, immutable splits, fold‑internal preprocessing), and can be executed either from **scripts (recommended for submission)** or directly from the **Jupyter notebooks**.
+The code supports **fully reproducible** runs (fixed seeds, immutable splits, fold‑internal preprocessing), and can be executed either from **scripts ** or directly from the **Jupyter notebooks**.
 
 ---
 
@@ -37,7 +37,7 @@ The code supports **fully reproducible** runs (fixed seeds, immutable splits, fo
 └── README.md
 ```
 
-> If you only have the notebooks, you can still reproduce everything by running them end‑to‑end. The `src/` scripts are a thin, submission‑friendly wrapper around the same pipeline.
+
 
 ---
 
