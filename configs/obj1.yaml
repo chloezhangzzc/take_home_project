@@ -1,0 +1,41 @@
+data:
+  path: data/census_clean.csv          # TODO: replace with your file
+  target_col: income                # final binary label (0/1 after mapping)
+  weight_col: weight                # survey/sample weight column
+  test_size: 0.20
+  val_size: 0.25
+  random_state: 42
+
+columns:
+  # TODO: define your feature lists or let code infer from dataframe
+  numeric: []                       # optional explicit list
+  low_card_cats: []                 # optional explicit list
+
+modeling:
+  use_weights: true
+  metrics: [pr_auc_weighted, roc_auc_weighted, f1_weighted_at_val_threshold]
+
+xgboost:
+  random_trials: 15
+  early_stopping_rounds: 200
+  num_boost_round: 2000
+  param_space:
+    max_depth: [4,6,8]
+    min_child_weight: [2,5,10]
+    subsample: [0.7,0.85,1.0]
+    colsample_bytree: [0.7,0.85,1.0]
+    eta: [0.03,0.05,0.08]
+    lambda: [1.0,5.0]
+    alpha: [0.0,1.0]
+
+lightgbm:
+  grid:
+    num_leaves: [31,63]
+    min_child_samples: [20,50]
+    reg_lambda: [1.0,5.0]
+    scale_pos_weight_mult: [0.8,1.0,1.2]
+
+blend:
+  enabled: true
+  alpha: 0.35                  # P_blend = alpha*P_LGBM + (1-alpha)*P_XGB
+  pick_threshold_by: f1_weighted

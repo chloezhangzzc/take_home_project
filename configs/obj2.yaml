@@ -1,0 +1,20 @@
+data:
+  path: data/census_clean.csv      # TODO
+  weight_col: weight
+  random_state: 42
+
+kmeans:
+  k: 10
+  min_weighted_share: 0.02
+
+hdbscan:
+  enabled: true
+  min_cluster_size: 600
+  min_samples: null
+  cluster_selection_method: eom
+
+gmm:
+  enabled: true
+  n_components: 13
+  covariance_type: full
+  reg_covar: 1.0e-3
